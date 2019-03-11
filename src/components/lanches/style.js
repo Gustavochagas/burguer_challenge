@@ -194,6 +194,17 @@ const LanchesStyles = createGlobalStyle`
         margin-left: 15px;
       }
     }
+
+    .my__order {
+      border-bottom: 1px solid #ededed;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+
+      .total {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+    }
   }
 `;
 
