@@ -15,7 +15,8 @@ class Lanches extends Component {
             totalPrice: 0.00,
             lanches: [],
             ingredientes: [],
-            sale: []
+            sale: [],
+            cartAdd: []
         };
     }
 
@@ -32,7 +33,9 @@ class Lanches extends Component {
                       id: item.id,
                       editItem: false,
                       initialPrice: item.initialPrice,
-                      itemsInclusos: item.ingredients
+                      itemsInclusos: item.ingredients,
+                      name: item.name,
+                      qty: 1
                     }
                   ]
               })
@@ -213,9 +216,31 @@ class Lanches extends Component {
 
     //set total price
 
-    this.setState({
-      totalPrice: this.state.totalPrice + valorLanche
-    })
+    var exist = this.state.cartAdd.some(function (el) {
+      return el.name === compra.name;
+    });
+
+    if(!exist) {
+      this.setState({
+        totalPrice: this.state.totalPrice + valorLanche,
+        cartAdd: [...this.state.cartAdd, compra]
+      })
+    } else {
+      this.setState({
+        totalPrice: this.state.totalPrice + valorLanche
+      })
+
+       this.setState(
+        {
+          itemsInclusos: this.state.cartAdd.map(item => {
+            if(item.name === compra.name) {
+             item.qty = item.qty + 1;
+            }
+            return item;
+          })
+        }
+      )
+    }
 
   }
 
@@ -272,7 +297,7 @@ class Lanches extends Component {
                 </div>
             ))}
           </div>
-          <Cart finalPrice={this.state.totalPrice} sales={this.state.sale} format={this.numberFormat} />
+          <Cart finalPrice={this.state.totalPrice} sales={this.state.sale} format={this.numberFormat} itemsAdd={this.state.cartAdd} />
       </Fragment>
     );
   }
