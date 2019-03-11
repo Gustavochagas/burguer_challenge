@@ -40,25 +40,29 @@ class Lanches extends Component {
                   ]
               })
           )
-          
       });
 
       axios.get('http://localhost:8080/getIngredients').then(resp => {
         //get all ingredientes
         resp.data.ingredientes.map(item => 
           this.setState({ 
-              ingredientes: [...this.state.ingredientes, item]
+            ingredientes: [...this.state.ingredientes, item]
           })
         )
       });
     }
 
+  //enable items adicionais on click btn editar
   editItem = (id) => {
     this.setState(
       {
         lanche: this.state.lanche.map(item => {
            if(item.id === id) {
-            item.editItem = true
+             if(item.editItem === true) {
+               item.editItem = false
+              } else {
+                item.editItem = true
+             }
            }
            return item;
         })
@@ -66,6 +70,7 @@ class Lanches extends Component {
     )
   }
 
+  //add item adicional 
   handleAdd = (e, value_ingrediente, name_ingrediente, id) => {
     let valorAtual = this.state.lanche[id - 1].initialPrice;
     let qtd;
@@ -117,11 +122,10 @@ class Lanches extends Component {
           })
         }
       )
-
     }
-
   }
 
+  //delete item from lanche
   handleDelete = (e, index, valor, id, nome) => {
     let valorAtual = this.state.lanche[id - 1].initialPrice;
     const itemsWithoutRemove = this.state.lanche[id - 1].itemsInclusos.filter((item, j) => index !== j);
@@ -148,15 +152,14 @@ class Lanches extends Component {
         return item;
       })
     });
-
   }
 
+  //add lanche in cart
   handleAddCart = (compra) => {
     let idLanche = compra.id;
     let valorLanche = compra.initialPrice;
 
     //sale light
-
     if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Bacon') ) {
 
     } else {
@@ -214,7 +217,7 @@ class Lanches extends Component {
       }
     }
 
-    //set total price
+    //set total price and meu pedido
 
     var exist = this.state.cartAdd.some(function (el) {
       return el.name === compra.name;
@@ -244,6 +247,7 @@ class Lanches extends Component {
 
   }
 
+  //convert number format
   numberFormat = (number) => {
     var number_format = number.toFixed(2).replace(".", ",");
     return number_format;
@@ -288,7 +292,7 @@ class Lanches extends Component {
                         </div>
                     : null}
                       <div className="buttons">
-                        <button onClick={() => this.editItem(lanche.id)} className='item__edit'>Editar</button>
+                        <button onClick={() => this.editItem(lanche.id)} className='item__edit'>{ this.state.lanche[lanche.id - 1].editItem ? 'Finalizar' : 'Editar' }</button>
                         { this.state.lanche[lanche.id - 1].initialPrice ?
                             <button onClick={() => this.handleAddCart(this.state.lanche[lanche.id - 1])} className="buyLanche">Pedir Lanche</button>
                         : null}
