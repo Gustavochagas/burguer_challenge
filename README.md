@@ -1,68 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Burguer Challenge
 
-## Available Scripts
+<b>Server</b>: Utilizado NodeJS e criado a aplicação REST retornando JSON's fixos com os lanches e os ingredientes.
+Dois endpoints foram criados:
 
-In the project directory, you can run:
+Lanches: GET <a href="http://localhost:8080/getLanches">http://localhost:8080/getLanches</a><br>
+Ingredientes: GET <a href="http://localhost:8080/getIngredients">http://localhost:8080/getIngredients</a>
 
-### `npm start`
+<b>Instruções</b>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- NodeJS e NPM/YARN precisam estar instalados.
+- Acessar a pasta servidor 
+- Executar <b>npm install</b> para que seja instalado as dependências
+- Executar <b>npm start</b> para inicializar o servidor que esta como porta padrão a 8080
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+<b>Frontend</b>: utilizado ReactJS no desenvolvimento da aplicação.
+ 
+ - URL Padrão: <a href="http://localhost:3000/">http://localhost:3000/</a>
 
-### `npm test`
+<b>Instruções</b>
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- NodeJS e NPM/YARN precisam estar instalados.
+- Acessar a raiz do projeto 
+- Executar <b>yarn install</b> para que seja instalado as dependências
+- Executar <b>yarn start</b> para inicializar a aplicação
+  
