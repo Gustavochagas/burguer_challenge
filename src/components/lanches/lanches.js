@@ -159,64 +159,6 @@ class Lanches extends Component {
     let idLanche = compra.id;
     let valorLanche = compra.initialPrice;
 
-    //sale light
-    if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Bacon') ) {
-
-    } else {
-      if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Alface') ) {
-        let totalPrice = this.state.lanche[idLanche - 1].initialPrice;
-
-        this.setState({
-          sale: ['Light'],
-          totalPrice: totalPrice + ((valorLanche * 10) / 100)
-        })
-      }
-    }
-
-    //sale muita carne
-
-    if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Hambúrguer de carne')) {
-      let qtyHbg;
-      let priceHbg;
-      let totalPrice = this.state.lanche[idLanche - 1].initialPrice;
-
-      this.state.lanche[idLanche - 1].itemsInclusos.map(item => {
-        if(item.name === 'Hambúrguer de carne') {
-          qtyHbg = item.qty;
-          priceHbg = item.price;
-        }
-      });
-
-      if(qtyHbg % 3 === 0) {
-        this.setState({
-          totalPrice: totalPrice - qtyHbg,
-          sale: ['Muita carne']
-        })
-      }
-    }
-
-    //sale muito queijo
-    
-    if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Queijo')) {
-      let qtyQueijo;
-      let priceHbg;
-      let totalPrice = this.state.lanche[idLanche - 1].initialPrice;
-
-      this.state.lanche[idLanche - 1].itemsInclusos.map(item => {
-        if(item.name === 'Queijo') {
-          qtyQueijo = item.qty;
-          priceHbg = item.price;
-        }
-      });
-
-      if(qtyQueijo % 3 === 0) {
-        this.setState({
-          totalPrice: totalPrice - qtyQueijo,
-          sale: ['Muito queijo']
-        })
-      }
-    }
-
     //set total price and meu pedido
 
     var exist = this.state.cartAdd.some(function (el) {
@@ -245,6 +187,66 @@ class Lanches extends Component {
       )
     }
 
+    //sale light
+    if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Bacon') ) {
+
+    } else {
+      if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Alface') ) {
+        let totalPrice = this.state.lanche[idLanche - 1].initialPrice + this.state.totalPrice;
+
+        this.setState({
+          sale: [...this.state.sale,'Light'],
+          totalPrice: totalPrice - ((valorLanche * 10) / 100)
+        })
+      }
+    }
+
+    //sale muita carne
+
+    if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Hambúrguer de carne')) {
+      let qtyHbg;
+      let priceHbg;
+      let totalPrice = this.state.lanche[idLanche - 1].initialPrice + this.state.totalPrice;
+
+      this.state.lanche[idLanche - 1].itemsInclusos.map(item => {
+        if(item.name === 'Hambúrguer de carne') {
+          qtyHbg = item.qty;
+          priceHbg = item.price;
+        }
+      });
+
+      if(qtyHbg % 3 === 0) {
+        this.setState({
+          totalPrice: totalPrice - priceHbg,
+          sale: [...this.state.sale, 'Muita carne']
+        })
+      }
+    }
+
+    //sale muito queijo
+    
+    if (this.state.lanche[idLanche - 1].itemsInclusos.find((item) => item.name === 'Queijo')) {
+      let qtyQueijo;
+      let priceQueijo;
+      let totalPrice = this.state.lanche[idLanche - 1].initialPrice + this.state.totalPrice;
+
+      this.state.lanche[idLanche - 1].itemsInclusos.map(item => {
+        if(item.name === 'Queijo') {
+          qtyQueijo = item.qty;
+          priceQueijo = item.price;
+        }
+      });
+
+      if(qtyQueijo % 3 === 0) {
+        this.setState({
+            totalPrice: totalPrice - priceQueijo,
+            sale: [...this.state.sale,'Muito queijo']
+        })   
+      }
+    }
+
+    
+
   }
 
   //convert number format
@@ -254,7 +256,6 @@ class Lanches extends Component {
   }
 
   render() {
-    
     return (
       <Fragment>
         <LanchesStyles />

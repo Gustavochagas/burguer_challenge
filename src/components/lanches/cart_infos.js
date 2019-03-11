@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 
 
 const Cart = ({ finalPrice, sales, format, itemsAdd }) => {
@@ -10,7 +10,12 @@ const Cart = ({ finalPrice, sales, format, itemsAdd }) => {
                 <p key={item.id}>{item.qty} - {item.name}</p>
                 )}
             </div>
-            <h2 className="total">Promoção: <span className="sale">{sales}</span></h2>
+            <div className="my__order">
+            <h2 className="total">Promoção</h2>
+            {sales.map(item =>
+                <p key={item} className="sale">{item}</p>
+            )}
+            </div>
             <h2 className="total">Total: <span><span className="signal">R$</span> {format(finalPrice)}</span></h2>
     </div>);
 };
