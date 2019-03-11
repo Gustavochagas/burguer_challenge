@@ -10,8 +10,8 @@ const Cart = ({ finalPrice, sales, format, itemsAdd }) => {
                 <p key={item.id}>{item.qty} - {item.name}</p>
                 )}
             </div>
-            <h2 className="total">Total: <span>R$ {format(finalPrice)}</span></h2>
-            <h2 className="total">Promoção: <span>{sales}</span></h2>
+            <h2 className="total">Promoção: <span className="sale">{sales}</span></h2>
+            <h2 className="total">Total: <span><span className="signal">R$</span> {format(finalPrice)}</span></h2>
     </div>);
 };
 

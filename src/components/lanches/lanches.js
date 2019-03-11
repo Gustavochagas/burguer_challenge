@@ -269,6 +269,7 @@ class Lanches extends Component {
                         <h2 className="item__title">{lanche.name}</h2>
                         <p className="item__price">{this.numberFormat(this.state.lanche[lanche.id - 1].initialPrice)}</p>
                     </div>
+                    <p className="itens__adicionais">Itens</p>
                     <ul className="item__ingredientes">
                         {this.state.lanche[lanche.id - 1].itemsInclusos.map((item, index) =>
                             <li className="item__ingredientes--itens" key={index}>
@@ -292,7 +293,7 @@ class Lanches extends Component {
                         </div>
                     : null}
                       <div className="buttons">
-                        <button onClick={() => this.editItem(lanche.id)} className='item__edit'>{ this.state.lanche[lanche.id - 1].editItem ? 'Finalizar' : 'Editar' }</button>
+                        <button onClick={() => this.editItem(lanche.id)} className='item__edit'>{ this.state.lanche[lanche.id - 1].editItem ? 'Finalizar Edição' : 'Editar' }</button>
                         { this.state.lanche[lanche.id - 1].initialPrice ?
                             <button onClick={() => this.handleAddCart(this.state.lanche[lanche.id - 1])} className="buyLanche">Pedir Lanche</button>
                         : null}

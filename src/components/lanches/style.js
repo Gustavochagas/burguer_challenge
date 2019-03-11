@@ -193,6 +193,14 @@ const LanchesStyles = createGlobalStyle`
         font-size: 30px;
         margin-left: 15px;
       }
+
+      span.sale {
+        font-size: 25px;
+      }
+
+      span.signal {
+        font-size: 20px;
+      }
     }
 
     .my__order {
