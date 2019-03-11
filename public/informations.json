@@ -1,0 +1,125 @@
+{
+    "lanches": [
+        {   
+            "id": 1,
+            "name": "X-Bacon",
+            "ingredients": [
+                {
+                    "name": "Bacon",
+                    "price": 2.00,
+                    "qty": 1
+                },
+                {
+                    "name": "Hambúrguer de carne",
+                    "price": 3.00,
+                    "qty": 1
+                },
+                {
+                    "name": "Queijo",
+                    "price": 1.50,
+                    "qty": 1
+                }
+            ],
+            "initialPrice": 6.50
+        },
+        {   
+            "id": 2,
+            "name": "X-Burger",
+            "ingredients": [
+                {
+                    "name": "Hambúrguer de carne",
+                    "price": 3.00,
+                    "qty": 1
+                },
+                {
+                    "name": "Queijo",
+                    "price": 1.50,
+                    "qty": 1
+                }
+            ],
+            "initialPrice": 4.50
+        },
+        {   
+            "id": 3,
+            "name": "X-Egg",
+            "ingredients": [
+                {
+                    "name": "Hambúrguer de carne",
+                    "price": 3.00,
+                    "qty": 1
+                },
+                {
+                    "name": "Queijo",
+                    "price": 1.50,
+                    "qty": 1
+                },
+                {
+                    "name": "Ovo",
+                    "price": 0.80,
+                    "qty": 1
+                }
+            ],
+            "initialPrice": 5.30
+        },
+        {   
+            "id": 4,
+            "name": "X-Egg Bacon",
+            "ingredients": [
+                {
+                    "name": "Hambúrguer de carne",
+                    "price": 3.00,
+                    "qty": 1
+                },
+                {
+                    "name": "Queijo",
+                    "price": 1.50,
+                    "qty": 1
+                },
+                {
+                    "name": "Ovo",
+                    "price": 0.80,
+                    "qty": 1
+                },
+                {
+                    "name": "Bacon",
+                    "price": 2.00,
+                    "qty": 1
+                }
+            ],
+            "initialPrice": 7.30
+        },
+        {   
+            "id": 5,
+            "name": "Personalizado",
+            "ingredients": [],
+            "initialPrice": 0.00
+        }
+    ],
+    "ingredientes": [
+        {
+            "id": 1,
+            "name": "Alface",
+            "price": 0.40
+        },
+        {
+            "id": 2,
+            "name": "Bacon",
+            "price": 2.00
+        },
+        {
+            "id": 3,
+            "name": "Hambúrguer de carne",
+            "price": 3.00
+        },
+        {
+            "id": 4,
+            "name": "Ovo",
+            "price": 0.80
+        },
+        {
+            "id": 5,
+            "name": "Queijo",
+            "price": 1.50
+        }
+    ]
+}
